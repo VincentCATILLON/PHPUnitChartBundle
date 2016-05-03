@@ -1,10 +1,7 @@
-Tyr Component
+PHPUnit Chart Bundle
 =============
 
-PHP library which makes curl calls to Tyr API.
-
-Supports Guzzle3 and Guzzle5 since version `1.2`.
-
+Symfony bundle which generates charts from phpunit XML report files.
 
 ## Composer
 
@@ -13,51 +10,20 @@ Install via composer
 ``` js
 {
     "require": {
-        "canaltp/tyr-component": "~1.2"
+        "devotion/phpunit-chart": "~0.1"
     }
 }
 ```
 
+## Configuration
 
-## Usage
+In this example above, default values are used:
 
-Instanciate TyrService as a plain PHP object:
-
-``` php
-$tyrUrl = 'http://tyr.dev.canaltp.fr/v0/';
-$endPointId = 2;
-
-// Instanciating api
-$tyrApi = new CanalTP\TyrComponent\TyrService($tyrUrl, $endPointId); // For Guzzle5
-$tyrApi = new CanalTP\TyrComponent\Guzzle3\TyrService($tyrUrl, $endPointId); // For Guzzle3
-
-// Creating request
-$user = $tyrApi->createUser('email', 'login');
-
-// Get last Guzzle response instance (usefull to get status code...)
-$response = $tyrApi->getLastResponse();
-$statusCode = $response->getStatusCode();
+``` yaml
+devotion_php_unit_chart:
+    base_path: %kernel.root_dir%/../
+    type: pie-basic
 ```
-
-See [full Tyr class](src/TyrService.php).
-
-
-### Testing
-
-Mock Guzzle client:
-
-``` php
-$tyrUrl = 'http://tyr.dev.canaltp.fr/v0/';
-$endPointId = 2;
-
-$tyrApi = new CanalTP\TyrComponent\TyrService($tyrUrl, $endPointId); // For Guzzle5
-$tyrApi = new CanalTP\TyrComponent\Guzzle3\TyrService($tyrUrl, $endPointId); // For Guzzle3
-
-// Creating GuzzleHttp\Client mock...
-
-$tyrApi->setClient($mockedClient);
-```
-
 
 ## License
 
