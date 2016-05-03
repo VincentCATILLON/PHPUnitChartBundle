@@ -1,0 +1,4 @@
+services:
+    phpunit_chart.coverage:
+        class: Devotion\PHPUnitChartBundle\Service\Coverage
+        arguments: ['%phpunit_chart.base_path%']

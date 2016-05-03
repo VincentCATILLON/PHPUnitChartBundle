@@ -1,0 +1,16 @@
+{
+    "name": "devotion/phpunit-chart-bundle",
+    "type": "library",
+    "description": "Devotion PHPUnit Chart Bundle",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Vincent Catillon",
+            "email": "contact@vincent-catillon.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": { "Devotion\\PHPUnitChartBundle\\": "" }
+    }
+}

@@ -1,0 +1,3 @@
+phpunit_chart_index:
+    path:  /
+    defaults: { _controller: DevotionPHPUnitChartBundle:Index:index }
