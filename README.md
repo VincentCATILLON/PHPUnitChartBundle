@@ -10,7 +10,7 @@ Install via composer
 ``` js
 {
     "require": {
-        "devotion/phpunit-chart": "~0.1"
+        "devotion/phpunit-chart": "~0.2"
     }
 }
 ```
