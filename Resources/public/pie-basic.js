@@ -7,7 +7,7 @@ $(function () {
             type: 'pie'
         },
         title: {
-            text: 'PHPUnit coverage'
+            text: title
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.3f}%</b>'

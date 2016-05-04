@@ -24,10 +24,11 @@ class IndexController extends Controller
             throw new \InvalidArgumentException('Report file has to be defined.');
         }
         $metrics = $this->container->get('phpunit_chart.coverage')->getCoverage($request->get('file'));
+        $title = $request->get('title', 'Unit tests coverage');
 
         return $this->render(
             'DevotionPHPUnitChartBundle:Output:'.$this->container->getParameter('phpunit_chart.type').'.html.twig',
-            array('metrics' => $metrics)
+            array('metrics' => $metrics, 'title' => $title)
         );
     }
 }

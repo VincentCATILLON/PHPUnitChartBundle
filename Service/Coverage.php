@@ -2,7 +2,6 @@
 
 namespace Devotion\PHPUnitChartBundle\Service;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 
 /**
@@ -11,7 +10,7 @@ use Symfony\Component\Filesystem\Exception\FileNotFoundException;
  * @author Vincent Catillon <contact@vincent-catillon.fr>
  * @copyright Vincent Catillon (c) 2016
  */
-class Coverage extends ContainerAware
+class Coverage
 {
     private $basePath;
 
