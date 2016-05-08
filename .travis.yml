@@ -1,0 +1,10 @@
+language: php
+php:
+    - '5.4'
+
+before_script:
+    - composer require escapestudios/symfony2-coding-standard:~2.0
+
+script:
+    - php vendor/bin/phpcs --standard=vendor/escapestudios/symfony2-coding-standard/Symfony2/ --extensions=php --ignore=vendor/* .
+    - phpunit --configuration phpunit.dist.xml
