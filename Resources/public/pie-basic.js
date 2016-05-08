@@ -7,10 +7,10 @@ $(function () {
             type: 'pie'
         },
         title: {
-            text: title
+            text: PHPUnitChartBundle.title || 'Unit tests coverage'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.3f}%</b>'
+            pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y:.3f} %</b><br/>'
         },
         plotOptions: {
             pie: {
@@ -18,7 +18,7 @@ $(function () {
                 cursor: 'pointer',
                 dataLabels: {
                     enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.3f} %',
+                    format: '<b>{point.name}</b>: {point.y:.3f} %',
                     style: {
                         color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                     }
@@ -30,13 +30,14 @@ $(function () {
             colorByPoint: true,
             data: [{
                 name: 'Yes',
-                y: metrics.percentage,
+                y: PHPUnitChartBundle.metrics.percentage_elements,
                 sliced: true,
                 selected: true
             }, {
                 name: 'Not yet',
-                y: (100 - metrics.percentage)
+                y: (100 - PHPUnitChartBundle.metrics.percentage_elements)
             }]
-        }]
+        }],
+        credits: PHPUnitChartBundle.credits
     });
 });
