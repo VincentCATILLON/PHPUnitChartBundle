@@ -4,7 +4,24 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
-    {% block content %}{% endblock %}
-    {% block javascripts %}{% endblock %}
+    <div id="container">
+        {% block content %}{% endblock %}
+    </div>
+    {% block javascripts %}
+        <script>
+            var PHPUnitChartBundle = {
+                title: '{{ title|default('') }}',
+                metrics: {{ metrics|json_encode|raw }},
+                last_metrics: {{ last_metrics|json_encode|raw }},
+                credits: {
+                    text: 'Generated using PHPUnitChartBundle',
+                    href: 'https://github.com/VincentCATILLON/PHPUnitChartBundle'
+                }
+            };
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    {% endblock %}
 </body>
 </html>

@@ -23,6 +23,7 @@ class DevotionPHPUnitChartExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter('phpunit_chart.base_path', $config['base_path']);
         $container->setParameter('phpunit_chart.type', $config['type']);
+        $container->setParameter('phpunit_chart.history_size', $config['history_size']);
         $loader = new Loader\YamlFileLoader(
             $container,
             new FileLocator(__DIR__.'/../Resources/config')

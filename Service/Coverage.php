@@ -3,6 +3,7 @@
 namespace Devotion\PHPUnitChartBundle\Service;
 
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
+use Devotion\PHPUnitChartBundle\Entity\Metrics;
 
 /**
  * Coverage service
@@ -12,6 +13,10 @@ use Symfony\Component\Filesystem\Exception\FileNotFoundException;
  */
 class Coverage
 {
+    /**
+     * Path containing the report file
+     * @var string $basePath
+     */
     private $basePath;
 
     /**
@@ -27,31 +32,34 @@ class Coverage
      * Coverage metrics getter
      * @param string $file
      * @throws FileNotFoundException
-     * @return array
+     * @return Metrics
      */
-    public function getCoverage($file)
+    public function getMetrics($file)
     {
-        $file = $this->basePath.$file;
-        if (!file_exists($file)) {
-            throw new FileNotFoundException(sprintf('Invalid input file provided: %s', $file));
+        $filepath = $this->basePath.$file;
+        if (!file_exists($filepath)) {
+            throw new FileNotFoundException(sprintf('Invalid input file provided: %s', $filepath));
         }
 
-        $xml = new \SimpleXMLElement(file_get_contents($file));
-        $metrics = $xml->xpath('//metrics');
-        $totalElements = 0;
-        $checkedElements = 0;
+        $xml = new \SimpleXMLElement(file_get_contents($filepath));
+        $values = $xml->xpath('//metrics');
 
-        foreach ($metrics as $metric) {
-            $totalElements   += (int) $metric['elements'];
-            $checkedElements += (int) $metric['coveredelements'];
+        $metrics = new Metrics();
+        foreach ($values as $value) {
+            $metrics
+                ->addTotalFiles(intval($value['files']))
+                ->addTotalClasses(intval($value['classes']))
+                ->addCoveredMethods(intval($value['coveredmethods']))
+                ->addTotalMethods(intval($value['methods']))
+                ->addCoveredConditionals(intval($value['coveredconditionals']))
+                ->addTotalConditionals(intval($value['conditionals']))
+                ->addCoveredStatements(intval($value['coveredstatements']))
+                ->addTotalStatements(intval($value['statements']))
+                ->addCoveredElements(intval($value['coveredelements']))
+                ->addTotalElements(intval($value['elements']));
         }
+        $metrics->setFilename($file);
 
-        $coverage = array(
-            'covered_elements' => $checkedElements,
-            'total_elements' => $totalElements,
-            'percentage' => ($checkedElements / $totalElements) * 100,
-        );
-
-        return $coverage;
+        return $metrics;
     }
 }

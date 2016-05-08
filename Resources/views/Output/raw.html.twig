@@ -1,1 +1,7 @@
-{{ metrics.percentage }}%
+{% extends 'DevotionPHPUnitChartBundle::base.html.twig' %}
+
+{% block content %}
+    {{ metrics.percentage_elements }}%
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
