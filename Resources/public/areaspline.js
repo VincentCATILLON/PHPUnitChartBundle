@@ -27,7 +27,7 @@ $(function () {
         },
         tooltip: {
             shared: true,
-            pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y} %</b><br/>'
+            pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y:.3f} %</b><br/>'
         },
         plotOptions: {
             areaspline: {
