@@ -1,4 +1,4 @@
-PHPUnit Chart Bundle
+PHPUnit Chart Bundle [![Build Status](https://api.travis-ci.org/VincentCATILLON/PHPUnitChartBundle.png?branch=master)](http://travis-ci.org/VincentCATILLON/PHPUnitChartBundle)
 =============
 
 Symfony bundle which generates charts from phpunit XML report files.
@@ -37,16 +37,16 @@ devotion_php_unit_chart:
 
 ## Usage
 
-Mandatory URL parameters:
+__Mandatory URL parameters__:
 - file (the report filename, in the base path defined in your configuration)
 
-Optional URL parameters
+__Optional URL parameters__:
 - title (In plain text, the chart title to display)
 - type (The chart type to use):
 -- pie-basic
 -- areaspline
 
-Examples:
+__Examples__:
 ``` yaml
 <domain.tld>/?file=default.xml
 <domain.tld>/?file=default.xml&title=AppBundle coverage
@@ -60,4 +60,5 @@ This project is under [GPL-3.0 License](LICENSE).
 ## Credits
 
 [jQuery](https://www.jquery.com)
+
 [Highcharts](https://www.highcharts.com)
