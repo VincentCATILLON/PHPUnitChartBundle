@@ -58,13 +58,3 @@ __Examples__:
 <domain.tld>/?file=default.xml&title=AppBundle coverage
 <domain.tld>/?file=default.xml&type=areaspline
 ```
-
-## License
-
-This project is under [GPL-3.0 License](LICENSE).
-
-## Credits
-
-[jQuery](https://www.jquery.com)
-
-[Highcharts](https://www.highcharts.com)
