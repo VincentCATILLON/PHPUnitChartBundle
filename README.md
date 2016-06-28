@@ -1,5 +1,11 @@
-PHPUnit Chart Bundle [![Build Status](https://api.travis-ci.org/VincentCATILLON/PHPUnitChartBundle.png?branch=master)](http://travis-ci.org/VincentCATILLON/PHPUnitChartBundle)
+PHPUnit Chart Bundle
 =============
+
+[![Latest Stable Version](https://poser.pugx.org/devotion/phpunit-chart-bundle/v/stable)](https://packagist.org/packages/devotion/phpunit-chart-bundle)
+[![Build Status](https://api.travis-ci.org/VincentCATILLON/PHPUnitChartBundle.png?branch=master)](http://travis-ci.org/VincentCATILLON/PHPUnitChartBundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ce543957-f9b9-49c5-816e-3227b1d81038/big.png)](https://insight.sensiolabs.com/projects/ce543957-f9b9-49c5-816e-3227b1d81038)
+[![License](https://poser.pugx.org/devotion/phpunit-chart-bundle/license)](https://packagist.org/packages/devotion/phpunit-chart-bundle)
+
 
 Symfony bundle which generates charts from phpunit XML report files.
 
